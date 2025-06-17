@@ -1,5 +1,6 @@
 const Koa = require('koa');
 const Router = require('@koa/router');
+const cors = require('@koa/cors');
 const { mande, defaults } = require("mande")
 
 const app = new Koa();
@@ -67,6 +68,8 @@ router.get("/comments", async (ctx, next) => {
 
   ctx.body = comments
 })
+
+app.use(cors())
 
 app
   .use(router.routes())
