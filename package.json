@@ -1,0 +1,19 @@
+{
+  "name": "ytplay-koa",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@koa/router": "^13.1.0",
+    "koa": "^3.0.0",
+    "mande": "^2.0.9"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3"
+  }
+}
