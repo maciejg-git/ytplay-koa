@@ -17,7 +17,7 @@ let commentThreads = mande("https://www.googleapis.com/youtube/v3/commentThreads
 defaults.headers.Referer = 'youtube-vue-server.herokuapp.com'
 
 router.get("/playlist", async (ctx, next) => {
-  let nextPageToken = ctx.request.query.nextPageToken ? ctx.request.query.nextPageToken : ""
+  let { nextPageToken } = ctx.request.query
 
   let query = {
     part: "snippet",
@@ -49,7 +49,7 @@ router.get("/playlists", async (ctx, next) => {
 })
 
 router.get("/comments", async (ctx, next) => {
-  let nextPageToken = ctx.request.query.nextPageToken ? ctx.request.query.nextPageToken : ""
+  let { nextPageToken } = ctx.request.query
 
   let query = {
     part: "snippet",
@@ -69,9 +69,8 @@ router.get("/comments", async (ctx, next) => {
   ctx.body = comments
 })
 
-app.use(cors())
-
 app
+  .use(cors())
   .use(router.routes())
   .use(router.allowedMethods());
 
