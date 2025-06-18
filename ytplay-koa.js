@@ -36,6 +36,7 @@ router.get("/playlist", async (ctx, next) => {
     ctx.body = items
   } catch(err) {
     console.log(err)
+    ctx.response.status = err.body.error.code
   }
 })
 
@@ -51,6 +52,7 @@ router.get("/playlists", async (ctx, next) => {
     ctx.body = playlistProperties
   } catch(err) {
     console.log(err)
+    ctx.response.status = err.body.error.code
   }
 })
 
@@ -75,6 +77,7 @@ router.get("/comments", async (ctx, next) => {
     ctx.body = comments
   } catch(err) {
     console.log(err)
+    ctx.response.status = err.body.error.code
   }
 })
 
