@@ -31,9 +31,12 @@ router.get("/playlist", async (ctx, next) => {
     query.pageToken = nextPageToken
   }
 
-  let items = await playlistItems.get({ query })
-
-  ctx.body = items
+  try {
+    let items = await playlistItems.get({ query })
+    ctx.body = items
+  } catch(err) {
+    console.log(err)
+  }
 })
 
 router.get("/playlists", async (ctx, next) => {
@@ -43,9 +46,12 @@ router.get("/playlists", async (ctx, next) => {
     key: apiKey,
   }
 
-  let playlistProperties = await playlists.get({ query })
-
-  ctx.body = playlistProperties
+  try {
+    let playlistProperties = await playlists.get({ query })
+    ctx.body = playlistProperties
+  } catch(err) {
+    console.log(err)
+  }
 })
 
 router.get("/comments", async (ctx, next) => {
@@ -64,9 +70,12 @@ router.get("/comments", async (ctx, next) => {
     query.pageToken = nextPageToken
   }
 
-  let comments = await commentThreads.get({ query })
-
-  ctx.body = comments
+  try {
+    let comments = await commentThreads.get({ query })
+    ctx.body = comments
+  } catch(err) {
+    console.log(err)
+  }
 })
 
 app
