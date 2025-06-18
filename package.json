@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./ytplay-koa.js"
+    "start": "node ./ytplay-koa.js",
+    "dev": "node --watch --env-file=.env ./ytplay-koa.js"
   },
   "author": "",
   "license": "ISC",
